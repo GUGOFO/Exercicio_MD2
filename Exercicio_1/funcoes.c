@@ -13,17 +13,30 @@ int g(int x, int n){
     return resultado;
 }
 
-int MDC(int a, int b){
-    printf("\n    MDC( %d , %d )\n", a , b);
+int MDC(int a, int b, int mostrar){
+    if(mostrar == 1)
+        printf("\n    MDC( %d , %d )\n", a , b);
     while(b != 0){
         int quociente = a / b;
         int resto = a % b;
-        printf("    %d = %d x %d + %d\n", a, b, quociente, resto);
+        if(mostrar == 1)
+            printf("    %d = %d x %d + %d\n", a, b, quociente, resto);
         a = b;
         b = resto;
     }
-    printf("    d = %d\n", a);
+    if(mostrar == 1)
+        printf("    d = %d\n", a);
     return a;
+}
+
+int eh_primo(int p){
+    if(p <= 1) return 0; // 1 não é primo e coloquei o menor so para garantir que não apareça um zero (Acho n ser possivel)
+    if(p == 2) return 1; // 2 é primo
+    if(p % 2 == 0) return 0; //Ele mod 2 é 0, ou seja, é divisivel por 2, então não é primo
+    for(int i = 3; pow(p,2) <= i; i += 2){ //Como pulamos todos os pares, podemos so indo de impar em impar, acelera um pouco o processo
+        if(p % i == 0) return 0;
+    }
+    return 1; //Se todas as condições acima falharam, o P é primo msm
 }
 
 int Algoritmo_Estendido_De_Euclides(int a, int b, int *x, int *y){
@@ -60,7 +73,7 @@ int Fatoracao_Interativa(int n){
         printf("Achando a 'lebre':\n");
         lebre =  g(g(lebre, n), n);
         printf("Achando o MDC(|tartaruga - lebre|, N):\n");
-        d = MDC(abs(tartaruga - lebre),n);
+        d = MDC(abs(tartaruga - lebre),n, 1);
 
         if( d > 1 && d < n){
             printf("\nUm fator de %d eh %d\n", n, d);
@@ -82,4 +95,8 @@ int inverso_modular(int e, int z){
     printf("\n   Ajustando para D ser positivo: D = (%d %% %d + %d) %% %d = %d\n", x, z, z, z, d);
 
     return d;
+}
+
+int Pequeno_Teorema_De_Fermat(int a, int p){
+    
 }
