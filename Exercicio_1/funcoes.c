@@ -33,11 +33,41 @@ int eh_primo(int p){
     if(p <= 1) return 0; // 1 não é primo e coloquei o menor so para garantir que não apareça um zero (Acho n ser possivel)
     if(p == 2) return 1; // 2 é primo
     if(p % 2 == 0) return 0; //Ele mod 2 é 0, ou seja, é divisivel por 2, então não é primo
-    for(int i = 3; pow(p,2) <= i; i += 2){ //Como pulamos todos os pares, podemos so indo de impar em impar, acelera um pouco o processo
+    for(int i = 3; i * i <= p; i += 2){ //Como pulamos todos os pares, podemos so indo de impar em impar, acelera um pouco o processo
         if(p % i == 0) return 0;
     }
     return 1; //Se todas as condições acima falharam, o P é primo msm
 }
+
+long long int potencia_modular(long long int base, long long int exp, long long int mod) {
+    long long int resultado = 1;
+
+    base %= mod; // Base inicial é menor que o modulo (Facilita bastante o codigo)
+
+    while (exp > 0) {
+        if (exp % 2 == 1) { // Se o expoente for ímpar, o valor atual da base é multiplicado ao resultado
+            resultado = (resultado * base) % mod;
+        }
+        exp >>= 1; // Ao pesquisa um pouco mais, decidi colocar um bitshift, pq fica mais eficiente, minha original era: exp = exp / 2
+        
+        base = (base * base) % mod; // A base é elevada ao quadrado para a próxima iteração
+    }
+
+    return resultado;
+}
+
+int Numero_De_Euler(int n){
+    int resultado = 0;
+    for(int i = 1; i <= n; i++){
+        if(MDC( i , n , 0) == 1)
+            resultado++;
+    }
+    return resultado;
+}
+
+//==============================================
+//              FUNÇÕES AVANÇADAS
+// =============================================
 
 int Algoritmo_Estendido_De_Euclides(int a, int b, int *x, int *y){
     if (b == 0) {
@@ -56,10 +86,6 @@ int Algoritmo_Estendido_De_Euclides(int a, int b, int *x, int *y){
 
     return mdc;
 }
-
-//==============================================
-//              FUNÇÕES AVANÇADAS
-// =============================================
 
 int Fatoracao_Interativa(int n){
 
@@ -97,6 +123,25 @@ int inverso_modular(int e, int z){
     return d;
 }
 
-int Pequeno_Teorema_De_Fermat(int a, int p){
-    
+long long int pequeno_teorema_de_fermat(long long int a, long long int p){
+    long long int expoente = p - 1;
+    return potencia_modular(a, expoente, p);
+}
+
+long long int Teorema_De_Euler(long long int a, long long int n){
+    long long int expoente = Numero_De_Euler(n);
+    return potencia_modular( a , expoente , n);
+}
+
+int divisao_euclidiana(int a, int b, int *q, int *r) {
+    if (b <= 0) {
+        return 0; // Retorna falha se o divisor não for positivo
+    }
+    *q = a / b;
+    *r = a % b;
+    if (*r < 0) {
+        *r += b;
+        (*q)--;
+    }
+    return 1;
 }

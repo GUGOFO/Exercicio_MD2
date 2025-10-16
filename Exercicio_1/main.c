@@ -72,20 +72,22 @@ int main(){
 
     int *C; //Frase Codificado
     C = malloc(sizeof(frase) * sizeof(int));
+    int quociente, resto;
 
     for(int i = 0; i < teste; i++){
         if (eh_primo(E) && M[i] % E != 0){
-            i++; //Place Hoder
+            pequeno_teorema_de_fermat( M[i] , E );
         }
         else if (MDC(M[i], N, 0) == 1){
-            i++; //Place Hoder
+            Teorema_De_Euler( M[i] , N);
         }
         else {
-            i++; //Place Hoder
+            divisao_euclidiana(M[i], N, &quociente, &resto);
+            C[i] = resto;
         }
     }
     
 
-    free(M);
+    free(M); free(C); 
     return 0;
 } 
