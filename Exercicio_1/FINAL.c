@@ -1,3 +1,9 @@
+//==========================================================
+//                      AUTORES
+//      Gustavo Gomes Fornaciari - 241032519
+//      Ana Beatriz Souza Araujo - 241025891
+//==========================================================
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
