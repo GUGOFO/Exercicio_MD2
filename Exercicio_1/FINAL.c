@@ -283,7 +283,7 @@ int eh_primo(long long int p){
     return 1;
 }
 
-// Exponenciação modular rápida (Opção 2 - Foco Matemático)
+// Exponenciação modular rápida
 long long int potencia_modular(long long int base, long long int exp, long long int mod, int mostrar) {
     long long int resultado = 1;
     long long int original_exp = exp;
