@@ -6,17 +6,7 @@ Este repositório contém as implementações em C para a atividade prática da 
 * Gustavo Gomes Fornaciari - 241032519
 * Ana Beatriz Souza Araujo - 241025891
 
-## Como Compilar e Executar
-
-Você pode compilar e executar os arquivos de duas maneiras principais.
-
-### 1. Via Terminal (CMD / PowerShell com GCC)
-
-Este método requer que você tenha um compilador C como o GCC (MinGW no Windows) instalado e configurado no PATH do seu sistema.
-
-1.  Abra o terminal na pasta onde os arquivos `.c` estão localizados.
-2.  Compile o programa desejado usando o comando `gcc`.
-3.  Execute o arquivo gerado.
+### Via Terminal (CMD / PowerShell com GCC)
 
 **Comandos:**
 
