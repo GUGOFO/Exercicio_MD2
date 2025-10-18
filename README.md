@@ -1,4 +1,4 @@
-# Trabalho de Matemática Discreta II - Implementações em C
+# Exercicio_MD2
 
 Este repositório contém as implementações em C para a atividade prática da disciplina de Matemática Discreta II.
 
