@@ -1,9 +1,4 @@
 # Exercicio_MD2
-<<<<<<< HEAD
-=======
-
-Este repositório contém as implementações em C para a atividade prática da disciplina de Matemática Discreta II.
->>>>>>> f704754df021850a56ebd6c74e0e8df8f08ca034
 
 **Autores:**
 * Gustavo Gomes Fornaciari - 241032519
