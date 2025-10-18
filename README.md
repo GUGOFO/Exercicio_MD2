@@ -1,6 +1,4 @@
-# Trabalho de Matemática Discreta II - Implementações em C
-
-Este repositório contém as implementações em C para a atividade prática da disciplina de Matemática Discreta II.
+# Exercicio_MD2
 
 **Autores:**
 * Gustavo Gomes Fornaciari - 241032519
